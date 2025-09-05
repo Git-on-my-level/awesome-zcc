@@ -23,6 +23,31 @@ zcc add mode community/mode-name
 /mode mode-name
 ```
 
+### Example Usage
+
+```bash
+# Install and use a development mode
+zcc add mode full-stack-developer
+/mode full-stack-developer
+
+# Now Claude Code will act as a full-stack developer
+# with expertise in frontend, backend, and deployment
+
+# Install a specialized mode
+zcc add mode technical-writer  
+/mode technical-writer
+
+# Claude Code now focuses on documentation,
+# clear explanations, and writing assistance
+```
+
+### Best Practices
+
+- **Choose the right mode** for your current task type
+- **Switch modes frequently** - use different personalities for different phases of work
+- **Combine with workflows** - modes set the personality, workflows define the process
+- **Test mode behavior** with a simple question after switching to verify the personality change
+
 ### Contributing
 
 See the main [Contributing Guidelines](../CONTRIBUTING.md) for information on adding new modes to this collection.

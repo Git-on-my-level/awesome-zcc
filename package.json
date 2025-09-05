@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/zcc-community/awesome-zcc/issues"
   },
-  "homepage": "https://github.com/zcc-community/awesome-zcc#readme"
+  "homepage": "https://github.com/zcc-community/awesome-zcc#readme",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
 }

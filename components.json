@@ -7,7 +7,7 @@
         "name": "full-stack-developer",
         "category": "development",
         "description": "Comprehensive full-stack development mode with frontend and backend expertise",
-        "author": "zcc",
+        "author": "awesome-zcc-community",
         "version": "1.0.0",
         "path": "modes/development/full-stack-developer.md",
         "tags": ["fullstack", "web", "frontend", "backend", "database"]
@@ -16,7 +16,7 @@
         "name": "technical-writer",
         "category": "writing",
         "description": "Professional technical documentation and content creation",
-        "author": "zcc",
+        "author": "awesome-zcc-community",
         "version": "1.0.0",
         "path": "modes/writing/technical-writer.md",
         "tags": ["documentation", "writing", "api-docs", "guides"]
@@ -27,7 +27,7 @@
         "name": "comprehensive-pr-review",
         "category": "code-review",
         "description": "Systematic multi-pass pull request review workflow",
-        "author": "zcc",
+        "author": "awesome-zcc-community",
         "version": "1.0.0",
         "path": "workflows/code-review/comprehensive-pr-review.md",
         "tags": ["review", "quality", "pr", "code-review"]
@@ -36,7 +36,7 @@
         "name": "systematic-debugging",
         "category": "debugging",
         "description": "Scientific approach to debugging and root cause analysis",
-        "author": "zcc",
+        "author": "awesome-zcc-community",
         "version": "1.0.0",
         "path": "workflows/debugging/systematic-debugging.md",
         "tags": ["debugging", "troubleshooting", "root-cause", "analysis"]
@@ -47,7 +47,7 @@
         "name": "react-specialist",
         "category": "frameworks",
         "description": "React framework expert with modern patterns and optimization",
-        "author": "zcc",
+        "author": "awesome-zcc-community",
         "version": "1.0.0",
         "path": "agents/frameworks/react-specialist.md",
         "tags": ["react", "frontend", "javascript", "typescript", "hooks"]
@@ -58,7 +58,7 @@
         "name": "frontend-react",
         "category": "frontend",
         "description": "Complete React development setup with TypeScript and modern tooling",
-        "author": "zcc",
+        "author": "awesome-zcc-community",
         "version": "1.0.0",
         "path": "starter-packs/frontend/frontend-react.json",
         "tags": ["react", "frontend", "typescript", "vite", "starter"]

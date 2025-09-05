@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome zcc - Component Browser</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .filters {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        
+        select, input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .search-input {
+            min-width: 200px;
+        }
+        
+        .components {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .component-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .component-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .component-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .component-category {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        
+        .component-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .component-meta {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        
+        .component-tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .component-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a67d8;
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .components {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                justify-content: space-between;
+            }
+            
+            .search-input {
+                min-width: auto;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Awesome zcc</h1>
+            <p class="tagline">The zsh for Claude Code - Community Component Browser</p>
+            <div class="badges">
+                <div class="badge">MIT License</div>
+                <div class="badge">v0.1.0</div>
+                <div class="badge">5+ Components</div>
+                <div class="badge">Community Driven</div>
+            </div>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="total-components">6</div>
+                <div>Total Components</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="modes-count">2</div>
+                <div>AI Modes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="workflows-count">2</div>
+                <div>Workflows</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="agents-count">1</div>
+                <div>Agents</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="packs-count">1</div>
+                <div>Starter Packs</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Search components..." class="search-input">
+            </div>
+            <div class="filter-group">
+                <label for="type-filter">Type:</label>
+                <select id="type-filter">
+                    <option value="">All Types</option>
+                    <option value="modes">Modes</option>
+                    <option value="workflows">Workflows</option>
+                    <option value="agents">Agents</option>
+                    <option value="starter-packs">Starter Packs</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="category-filter">Category:</label>
+                <select id="category-filter">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="components" id="components-container">
+            <!-- Components will be loaded here -->
+        </div>
+
+        <div class="no-results" id="no-results" style="display: none;">
+            No components match your current filters. Try adjusting your search criteria.
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="https://github.com/zcc-community/awesome-zcc">GitHub Repository</a>
+                <a href="https://github.com/dazheng/zcc">zcc Main Project</a>
+                <a href="https://claude.ai/code">Claude Code</a>
+                <a href="CONTRIBUTING.md">Contribute</a>
+                <a href="ROADMAP.md">Roadmap</a>
+            </div>
+            <p>&copy; 2025 awesome-zcc community. Licensed under MIT.</p>
+        </footer>
+    </div>
+
+    <script>
+        let allComponents = [];
+        let filteredComponents = [];
+
+        // Load components data
+        async function loadComponents() {
+            try {
+                const response = await fetch('components.json');
+                const data = await response.json();
+                
+                // Update statistics
+                document.getElementById('total-components').textContent = data.statistics.totalComponents;
+                document.getElementById('modes-count').textContent = data.statistics.modes;
+                document.getElementById('workflows-count').textContent = data.statistics.workflows;
+                document.getElementById('agents-count').textContent = data.statistics.agents;
+                document.getElementById('packs-count').textContent = data.statistics.starterPacks;
+                
+                // Flatten all components into a single array with type information
+                allComponents = [];
+                
+                if (data.components.modes) {
+                    data.components.modes.forEach(comp => {
+                        allComponents.push({...comp, type: 'modes'});
+                    });
+                }
+                
+                if (data.components.workflows) {
+                    data.components.workflows.forEach(comp => {
+                        allComponents.push({...comp, type: 'workflows'});
+                    });
+                }
+                
+                if (data.components.agents) {
+                    data.components.agents.forEach(comp => {
+                        allComponents.push({...comp, type: 'agents'});
+                    });
+                }
+                
+                if (data.components['starter-packs']) {
+                    data.components['starter-packs'].forEach(comp => {
+                        allComponents.push({...comp, type: 'starter-packs'});
+                    });
+                }
+                
+                // Populate category filter
+                populateCategoryFilter();
+                
+                // Initial render
+                filterComponents();
+                
+            } catch (error) {
+                console.error('Error loading components:', error);
+                document.getElementById('components-container').innerHTML = 
+                    '<p class="no-results">Error loading components. Please try again later.</p>';
+            }
+        }
+
+        function populateCategoryFilter() {
+            const categories = [...new Set(allComponents.map(comp => comp.category))].sort();
+            const categoryFilter = document.getElementById('category-filter');
+            
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                categoryFilter.appendChild(option);
+            });
+        }
+
+        function filterComponents() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const typeFilter = document.getElementById('type-filter').value;
+            const categoryFilter = document.getElementById('category-filter').value;
+
+            filteredComponents = allComponents.filter(comp => {
+                const matchesSearch = !searchTerm || 
+                    comp.name.toLowerCase().includes(searchTerm) ||
+                    comp.description.toLowerCase().includes(searchTerm) ||
+                    comp.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                
+                const matchesType = !typeFilter || comp.type === typeFilter;
+                const matchesCategory = !categoryFilter || comp.category === categoryFilter;
+
+                return matchesSearch && matchesType && matchesCategory;
+            });
+
+            renderComponents();
+        }
+
+        function renderComponents() {
+            const container = document.getElementById('components-container');
+            const noResults = document.getElementById('no-results');
+
+            if (filteredComponents.length === 0) {
+                container.style.display = 'none';
+                noResults.style.display = 'block';
+                return;
+            }
+
+            container.style.display = 'grid';
+            noResults.style.display = 'none';
+
+            container.innerHTML = filteredComponents.map(comp => {
+                const typeLabel = comp.type === 'starter-packs' ? 'Starter Pack' : 
+                                comp.type.charAt(0).toUpperCase() + comp.type.slice(1, -1);
+                
+                const installCommand = comp.type === 'starter-packs' ? 
+                    `zcc add pack ${comp.name}` : 
+                    `zcc add ${comp.type.slice(0, -1)} ${comp.name}`;
+
+                return `
+                    <div class="component-card">
+                        <div class="component-header">
+                            <div>
+                                <div class="component-name">${comp.name}</div>
+                                <div class="component-category">${typeLabel}</div>
+                            </div>
+                        </div>
+                        <div class="component-description">${comp.description}</div>
+                        <div class="component-meta">
+                            <span>v${comp.version}</span>
+                            <span>by ${comp.author}</span>
+                        </div>
+                        <div class="component-tags">
+                            ${comp.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="component-actions">
+                            <button class="btn btn-primary" onclick="copyInstallCommand('${installCommand}')">
+                                Copy Install Command
+                            </button>
+                            <a href="https://github.com/zcc-community/awesome-zcc/blob/main/${comp.path}" 
+                               target="_blank" class="btn btn-secondary">View Source</a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function copyInstallCommand(command) {
+            navigator.clipboard.writeText(command).then(() => {
+                // Could add a toast notification here
+                console.log('Install command copied:', command);
+            }).catch(err => {
+                console.error('Failed to copy command:', err);
+            });
+        }
+
+        // Event listeners
+        document.getElementById('search').addEventListener('input', filterComponents);
+        document.getElementById('type-filter').addEventListener('change', filterComponents);
+        document.getElementById('category-filter').addEventListener('change', filterComponents);
+
+        // Load components on page load
+        document.addEventListener('DOMContentLoaded', loadComponents);
+    </script>
+</body>
+</html>
