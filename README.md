@@ -10,7 +10,7 @@ A curated list of awesome modes, workflows, agents, and starter packs for [zcc](
 
 ## What is zcc?
 
-zcc is to Claude Code what zsh is to bash. It enhances, customizes, and empowers Claude Code through themes (modes), plugins (agents/workflows), configuration, and automation. Think of it as building oh-my-zsh for AI development.
+zcc is to Claude Code what zsh is to bash. It enhances, customizes, and empowers Claude Code through packs (containing modes, agents, and workflows), configuration, and automation. Think of it as building oh-my-zsh for AI development.
 
 ## Contents
 
@@ -27,12 +27,9 @@ zcc is to Claude Code what zsh is to bash. It enhances, customizes, and empowers
 Explore available components in several ways:
 
 1. **Browse by Category**: Navigate the repository directories:
-   - `/modes/` - AI personalities for different development tasks
-   - `/workflows/` - Reusable development procedures
-   - `/agents/` - Specialized Claude Code subagents
-   - `/starter-packs/` - Pre-configured component bundles
+   - `/packs/` - Self-contained packages with modes, workflows, and agents organized by domain
 
-2. **Search the Registry**: Check [`components.json`](components.json) for a complete list of all available components with metadata.
+2. **Explore Packs**: Browse the `/packs/` directory to find domain-specific packages with their manifest.json files.
 
 3. **Filter by Tags**: Components are tagged for easy discovery:
    - `react`, `frontend`, `backend`, `debugging`, `security`, `performance`, etc.
@@ -61,17 +58,11 @@ Ready to contribute? Here's how to add your own component:
 
 1. **Fork this repository**
 2. **Choose the right category**:
-   - `modes/development/` - Engineering, debugging, architecture
-   - `modes/writing/` - Technical writing, documentation  
-   - `modes/research/` - Analysis, investigation, learning
-   - `modes/specialized/` - Domain-specific expertise
-   - `workflows/code-review/` - PR review, quality assessment
-   - `workflows/debugging/` - Systematic debugging approaches
-   - `workflows/deployment/` - Release and rollback procedures
-   - `workflows/testing/` - Test strategy and coverage
-   - `agents/language-specific/` - Python, JavaScript, Rust, etc.
-   - `agents/tools/` - Git, Docker, Kubernetes integration
-   - `agents/frameworks/` - React, Django, Spring Boot
+   - `packs/frontend-react/` - React development with specialist agents
+   - `packs/full-stack/` - Complete full-stack development modes
+   - `packs/code-quality/` - Code review and quality workflows
+   - `packs/debugging/` - Systematic debugging approaches
+   - `packs/essentials/` - Core development and writing modes
 
 3. **Create your component file** with proper YAML frontmatter:
    ```yaml

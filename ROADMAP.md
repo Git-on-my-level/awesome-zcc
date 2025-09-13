@@ -34,7 +34,7 @@ This roadmap outlines the planned development for awesome-zcc, focusing on commu
 
 ### Ecosystem Growth
 - **Community Expansion**
-  - [ ] Partner with popular open-source projects for official modes/workflows
+  - [ ] Partner with popular open-source projects for official packs
   - [ ] Launch component contest and featured component program
   - [ ] Create contributor onboarding program with mentorship
   - [ ] Establish component maintainer program with responsibilities
