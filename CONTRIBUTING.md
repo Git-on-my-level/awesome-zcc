@@ -60,18 +60,12 @@ We welcome the following types of contributions:
 
 ### Step 2: Choose the Right Category
 
-- **modes/development/**: Engineering, debugging, architecture
-- **modes/writing/**: Technical writing, documentation
-- **modes/research/**: Analysis, investigation, learning
-- **modes/specialized/**: Domain-specific expertise
-- **workflows/code-review/**: PR review, quality assessment
-- **workflows/debugging/**: Systematic debugging approaches
-- **workflows/deployment/**: Release and rollback procedures
-- **workflows/testing/**: Test strategy and coverage
-- **agents/language-specific/**: Python, JavaScript, Rust, etc.
-- **agents/tools/**: Git, Docker, Kubernetes integration
-- **agents/frameworks/**: React, Django, Spring Boot
-- **starter-packs/**: Organized by development domain
+- **packs/frontend-react/**: React development with specialist agents
+- **packs/full-stack/**: Complete full-stack development modes
+- **packs/code-quality/**: Code review and quality workflows
+- **packs/debugging/**: Systematic debugging approaches
+- **packs/essentials/**: Core development and writing modes
+- Each pack contains its own modes/, workflows/, and agents/ subdirectories
 
 ### Step 3: Submit Your Contribution
 

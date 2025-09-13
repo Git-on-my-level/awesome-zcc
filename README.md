@@ -10,15 +10,13 @@ A curated list of awesome modes, workflows, agents, and starter packs for [zcc](
 
 ## What is zcc?
 
-zcc is to Claude Code what zsh is to bash. It enhances, customizes, and empowers Claude Code through themes (modes), plugins (agents/workflows), configuration, and automation. Think of it as building oh-my-zsh for AI development.
+zcc is to Claude Code what zsh is to bash. It enhances, customizes, and empowers Claude Code through packs (containing modes, agents, and workflows), configuration, and automation. Think of it as building oh-my-zsh for AI development.
 
 ## Contents
 
-- [Quick Start](#quick-start) - Get started with awesome-zcc components
-- [Modes](#modes) - AI personalities for different development tasks
-- [Workflows](#workflows) - Reusable development procedures and patterns  
-- [Agents](#agents) - Claude Code subagents for specialized tasks
-- [Starter Packs](#starter-packs) - Pre-configured component bundles
+- [Quick Start](#quick-start) - Get started with awesome-zcc packs
+- [Available Packs](#available-packs) - Domain-specific component packages
+- [Contributing](#contributing) - Add your own packs and components
 
 ## Quick Start
 
@@ -27,32 +25,27 @@ zcc is to Claude Code what zsh is to bash. It enhances, customizes, and empowers
 Explore available components in several ways:
 
 1. **Browse by Category**: Navigate the repository directories:
-   - `/modes/` - AI personalities for different development tasks
-   - `/workflows/` - Reusable development procedures
-   - `/agents/` - Specialized Claude Code subagents
-   - `/starter-packs/` - Pre-configured component bundles
+   - `/packs/` - Self-contained packages with modes, workflows, and agents organized by domain
 
-2. **Search the Registry**: Check [`components.json`](components.json) for a complete list of all available components with metadata.
+2. **Explore Packs**: Browse the `/packs/` directory to find domain-specific packages with their manifest.json files.
 
 3. **Filter by Tags**: Components are tagged for easy discovery:
    - `react`, `frontend`, `backend`, `debugging`, `security`, `performance`, etc.
 
-### Using Components with zcc
+### Using Packs with zcc
 
-Once you have [zcc](https://github.com/dazheng/zcc) installed, you can use these community components:
+Once you have [zcc](https://github.com/dazheng/zcc) installed, you can install packs from this repository:
 
 ```bash
-# Install a mode
-zcc add mode full-stack-developer
+# Install a complete pack
+zcc add pack frontend-react --source awesome-zcc
 
-# Install a workflow  
-zcc add workflow comprehensive-pr-review
+# Install multiple packs
+zcc add pack full-stack code-quality --source awesome-zcc
 
-# Install an agent
-zcc add agent react-specialist
+# List available packs
+zcc list packs --source awesome-zcc
 
-# Install a starter pack (installs multiple components)
-zcc add starter-pack frontend-react
 ```
 
 ### Submitting New Components
@@ -61,17 +54,11 @@ Ready to contribute? Here's how to add your own component:
 
 1. **Fork this repository**
 2. **Choose the right category**:
-   - `modes/development/` - Engineering, debugging, architecture
-   - `modes/writing/` - Technical writing, documentation  
-   - `modes/research/` - Analysis, investigation, learning
-   - `modes/specialized/` - Domain-specific expertise
-   - `workflows/code-review/` - PR review, quality assessment
-   - `workflows/debugging/` - Systematic debugging approaches
-   - `workflows/deployment/` - Release and rollback procedures
-   - `workflows/testing/` - Test strategy and coverage
-   - `agents/language-specific/` - Python, JavaScript, Rust, etc.
-   - `agents/tools/` - Git, Docker, Kubernetes integration
-   - `agents/frameworks/` - React, Django, Spring Boot
+   - `packs/frontend-react/` - React development with specialist agents
+   - `packs/full-stack/` - Complete full-stack development modes
+   - `packs/code-quality/` - Code review and quality workflows
+   - `packs/debugging/` - Systematic debugging approaches
+   - `packs/essentials/` - Core development and writing modes
 
 3. **Create your component file** with proper YAML frontmatter:
    ```yaml
@@ -87,11 +74,10 @@ Ready to contribute? Here's how to add your own component:
    ---
    ```
 
-4. **Test your component** using the validation script:
-   ```bash
-   npm install  # Install dependencies
-   node scripts/validate.js  # Validate repository
-   ```
+4. **Validate your pack** by ensuring:
+   - manifest.json is valid JSON
+   - All referenced components exist in the pack
+   - Components have proper YAML frontmatter
 
 5. **Submit a pull request** with:
    - Your new component file
@@ -113,66 +99,37 @@ All components go through:
 - 💬 Join community discussions in GitHub Issues
 - 📚 Check the main [zcc documentation](https://github.com/dazheng/zcc) for CLI usage
 
-## Modes
+## Available Packs
 
-AI personalities that transform Claude Code's behavior for specific tasks.
+### frontend-react
+Complete React frontend development pack with modern patterns and performance optimization.
+- **Components**: React specialist agent
+- **Focus**: React patterns, hooks, TypeScript, performance
+- **Install**: `zcc add pack frontend-react --source awesome-zcc`
 
-### Development
-<!-- Add development-focused modes here -->
+### full-stack
+Comprehensive full-stack development with frontend, backend, and DevOps expertise.
+- **Components**: Full-stack developer mode
+- **Focus**: End-to-end development, architecture, deployment
+- **Install**: `zcc add pack full-stack --source awesome-zcc`
 
-### Writing  
-<!-- Add writing and documentation modes here -->
+### code-quality
+Professional code review and quality assurance workflows.
+- **Components**: Comprehensive PR review workflow
+- **Focus**: Security, performance, maintainability analysis
+- **Install**: `zcc add pack code-quality --source awesome-zcc`
 
-### Research
-<!-- Add research and analysis modes here -->
+### debugging
+Systematic debugging and troubleshooting approaches.
+- **Components**: Systematic debugging workflow
+- **Focus**: Root cause analysis, problem-solving methodologies
+- **Install**: `zcc add pack debugging --source awesome-zcc`
 
-### Specialized
-<!-- Add domain-specific modes here -->
-
-## Workflows
-
-Reusable procedures and patterns for common development tasks.
-
-### Code Review
-<!-- Add code review workflows here -->
-
-### Debugging
-<!-- Add debugging procedures here -->
-
-### Deployment  
-<!-- Add deployment workflows here -->
-
-### Testing
-<!-- Add testing workflows here -->
-
-## Agents
-
-Claude Code subagents for specialized capabilities.
-
-### Language-Specific
-<!-- Add language-specific agents here -->
-
-### Tools
-<!-- Add tool integration agents here -->
-
-### Frameworks
-<!-- Add framework-specific agents here -->
-
-## Starter Packs
-
-Pre-configured bundles of modes, workflows, and agents for specific use cases.
-
-### Frontend
-<!-- Add frontend development packs here -->
-
-### Backend
-<!-- Add backend development packs here -->
-
-### DevOps
-<!-- Add DevOps and infrastructure packs here -->
-
-### AI/ML
-<!-- Add AI/ML development packs here -->
+### essentials
+Core development and documentation modes for everyday tasks.
+- **Components**: Technical writer mode
+- **Focus**: Documentation, technical communication
+- **Install**: `zcc add pack essentials --source awesome-zcc`
 
 ## Contributing
 
