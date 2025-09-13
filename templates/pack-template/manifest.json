@@ -1,0 +1,50 @@
+{
+  "name": "pack-name",
+  "version": "1.0.0",
+  "description": "Brief description of what this pack provides",
+  "author": "your-github-username",
+  "tags": [
+    "tag1",
+    "tag2"
+  ],
+  "category": "frontend|backend|devops|data|general",
+  "mementoProtocolVersion": "1.0.0",
+  "components": {
+    "modes": [
+      {
+        "name": "mode-name",
+        "required": false
+      }
+    ],
+    "workflows": [
+      {
+        "name": "workflow-name",
+        "required": false
+      }
+    ],
+    "agents": [
+      {
+        "name": "agent-name",
+        "required": false
+      }
+    ]
+  },
+  "configuration": {
+    "defaultMode": null,
+    "customCommands": {},
+    "projectSettings": {
+      "enableHooks": false,
+      "enableFuzzyMatching": true,
+      "ticketSystem": false
+    }
+  },
+  "hooks": [],
+  "compatibleWith": [
+    "javascript",
+    "typescript"
+  ],
+  "postInstall": {
+    "message": "Pack installed successfully!",
+    "commands": []
+  }
+}

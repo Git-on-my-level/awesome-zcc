@@ -22,4 +22,4 @@
 - [ ] Documentation is complete with examples
 - [ ] I have tested my component
 - [ ] My changes follow the contribution guidelines
-- [ ] I have updated components.json if adding new component
+- [ ] I have created/updated manifest.json for the relevant pack
